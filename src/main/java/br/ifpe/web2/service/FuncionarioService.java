@@ -1,5 +1,7 @@
 package br.ifpe.web2.service;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,6 +27,8 @@ public class FuncionarioService {
 			throw new ServiceException("Funcionário deve ter 18 anos ou mais");
 		}
 		
+		funcionario.setDataCriacao(new Date());
+		funcionario.setDataUltimaAtualizacao(new Date());
 		this.funcionarioDAO.save(funcionario);
 	}
 }

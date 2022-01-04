@@ -1,9 +1,12 @@
 package br.ifpe.web2.model.cadastro;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -40,12 +43,19 @@ public class Funcionario extends ObjetoGeral{
 	private Date dataNascimento;
 
 	@ManyToOne
+	@JoinColumn(name = "cargo_codigo")
 	@NotNull(message = "Cargo deve ser informado")
 	private Cargo cargo;
 	
 	@ManyToOne
 	@NotNull(message = "Empresa deve ser informada")
 	private Empresa empresa;
+	
+	@ManyToOne
+	private Funcionario chefe;
+	
+	@ManyToMany
+	private List<Funcionario> assessores;
 	
 	public String getMatricula() {
 		return matricula;
@@ -82,6 +92,12 @@ public class Funcionario extends ObjetoGeral{
 	}
 	public void setEmpresa(Empresa empresa) {
 		this.empresa = empresa;
+	}
+	public Funcionario getChefe() {
+		return chefe;
+	}
+	public void setChefe(Funcionario chefe) {
+		this.chefe = chefe;
 	}
 	
 	

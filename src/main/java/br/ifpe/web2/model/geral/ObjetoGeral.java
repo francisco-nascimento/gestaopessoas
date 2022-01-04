@@ -31,7 +31,7 @@ public abstract class ObjetoGeral {
 	@ManyToOne
 	@JoinColumn(name="usuario_alterador")
 	private Usuario alteradorPor;
-	@Version
+//	@Version
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date dataUltimaAtualizacao;
 	

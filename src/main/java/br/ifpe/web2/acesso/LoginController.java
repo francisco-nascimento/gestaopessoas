@@ -51,4 +51,9 @@ public class LoginController {
 		return "redirect:/";
 	}
 	
+	@GetMapping("/acesso-negado")
+	public String acessoNegado() {
+		return "acesso-negado";
+	}
+	
 }
