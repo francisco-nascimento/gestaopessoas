@@ -45,11 +45,11 @@ public class Util {
 		}
 	}
 
-	public static void main(String[] args) throws ParseException {
-		SimpleDateFormat sds = new SimpleDateFormat("yyyy-MM-dd");
-		Date data = sds.parse("2000-12-19");
-		System.out.println("Anos: " + calcularIdade(data));
-	}
+//	public static void main(String[] args) throws ParseException {
+//		SimpleDateFormat sds = new SimpleDateFormat("yyyy-MM-dd");
+//		Date data = sds.parse("2000-12-19");
+//		System.out.println("Anos: " + calcularIdade(data));
+//	}
 	
 
 }
