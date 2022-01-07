@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 
 import br.ifpe.web2.model.geral.ObjetoGeral;
+import br.ifpe.web2.resources.dto.CargoDTO;
 
 @Entity
 public class Cargo extends ObjetoGeral{
@@ -13,6 +14,11 @@ public class Cargo extends ObjetoGeral{
 	private double salario;
 	
 	public Cargo() {
+	}
+	
+	public Cargo(CargoDTO cargoDTO) {
+		this.nome = cargoDTO.getNome();
+		this.salario = cargoDTO.getSalario();
 	}
 
 	public Cargo(String _nome) {

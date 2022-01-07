@@ -38,7 +38,7 @@ public class CargoService {
 	}
 	
 	public void criarCargos() {
-		String nomesCargos[] = {"Advogado", "Psicólog", "Secretária", "Gerente", "Vendedor"};
+		String nomesCargos[] = {"Advogado", "Psicólogo", "Secretária", "Gerente", "Vendedor"};
 		for (String nome : nomesCargos) {
 			Cargo c = new Cargo(nome);
 			try {
@@ -47,6 +47,10 @@ public class CargoService {
 				System.out.println("Cargo já existente");
 			}
 		}
+	}
+	
+	public Cargo buscarPeloCodigo(Integer codigo) {
+		return this.cargoDAO.getById(codigo);
 	}
 	
 }

@@ -9,9 +9,9 @@ import org.springframework.web.servlet.resource.ResourceHttpRequestHandler;
 
 public class AutorizadorInterceptor implements HandlerInterceptor {
 
-	private static final boolean CONTROLAR_ACESSO = true;
+	private static final boolean CONTROLAR_ACESSO = false;
 
-	private static final String[] RECURSOS_LIVRES = { "/", "/login", "/logout", "/novo-usuario", "/usuarios/form",
+	private static final String[] RECURSOS_LIVRES = { "/", "/api", "/login", "/logout", "/novo-usuario", "/usuarios/form",
 			"/usuarios/salvar", "/efetuarLogin", "/acesso-negado" };
 
 	private static final String PAGINA_ACESSO_NEGADO = "/acesso-negado";
@@ -31,6 +31,7 @@ public class AutorizadorInterceptor implements HandlerInterceptor {
 
 		// Para acessar qualquer pagina dessa aplicação, o usuário precisa estar
 		// autenticado
+		System.out.println(">>> URL: " + request.getRequestURL());
 
 		for (String recurso : RECURSOS_LIVRES) {
 			if (request.getRequestURL().toString().endsWith(recurso)) {

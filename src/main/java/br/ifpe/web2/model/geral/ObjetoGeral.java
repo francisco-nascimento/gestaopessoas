@@ -1,5 +1,6 @@
 package br.ifpe.web2.model.geral;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.GeneratedValue;
@@ -17,8 +18,13 @@ import org.hibernate.annotations.Type;
 import br.ifpe.web2.acesso.Usuario;
 
 @MappedSuperclass
-public abstract class ObjetoGeral {
+public abstract class ObjetoGeral implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4941867458587035870L;
+	
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer codigo;
 	@Type(type="yes_no")
